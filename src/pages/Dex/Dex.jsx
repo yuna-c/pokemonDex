@@ -1,27 +1,24 @@
-import { useContext } from 'react'
-
+import { useSelector } from 'react-redux'
 import Dashboard from '../../components/dashboard/Dashboard'
 import PokemonList from '../../components/pokemonList/PokemonList'
-import { PokemonContext } from '../../context/PokemonContext'
-
 import Layout from '../../shared/layout/Layout'
-
 import { Article } from '../../styles/LayoutStyle'
 import { BoardTitle } from '../../styles/CommonStyle'
 
-export default function Dex({ pokemon, convertId, countPokemon, isSelected }) {
-  const { selectedPokemon, setSelectedPokemon } = useContext(PokemonContext)
+export default function Dex({ pokemon, convertId, isSelected, countPokemon, addPokemon, removePokemon }) {
+  const selectedPokemon = useSelector((state) => state.pokemon.selectedPokemon)
 
   return (
-    <Layout title={'Dex'} showBackground={false}>
+    <Layout title="Dex" showBackground={false}>
       <Article id="Dashboard">
         <BoardTitle>나만의 포켓몬</BoardTitle>
         <Dashboard
           pokemon={pokemon}
           convertId={convertId}
           countPokemon={countPokemon}
+          addPokemon={addPokemon}
+          removePokemon={removePokemon}
           selectedPokemon={selectedPokemon}
-          setSelectedPokemon={setSelectedPokemon}
         />
       </Article>
 
@@ -32,8 +29,8 @@ export default function Dex({ pokemon, convertId, countPokemon, isSelected }) {
           convertId={convertId}
           isSelected={isSelected}
           countPokemon={countPokemon}
-          selectedPokemon={selectedPokemon}
-          setSelectedPokemon={setSelectedPokemon}
+          addPokemon={addPokemon}
+          removePokemon={removePokemon}
         />
       </Article>
     </Layout>

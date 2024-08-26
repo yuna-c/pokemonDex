@@ -1,39 +1,35 @@
-import { useContext } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
-
 import Layout from '../../shared/layout/Layout'
-import Dashboard from '../../components/dashboard/Dashboard'
-import { PokemonContext } from '../../context/PokemonContext'
-
 import { Article } from '../../styles/LayoutStyle'
 import { DetailButton, DetailBox, BoardTitle } from '../../styles/CommonStyle'
+import Dashboard from '../../components/dashboard/Dashboard' // Dashboard 컴포넌트를 임포트
 
-export default function PokemonDetail({ pokemon, convertId, countPokemon, onHandleAddPokemon, onHandleDeletePokemon }) {
+export default function PokemonDetail({
+  pokemon,
+  convertId,
+  isSelected,
+  countPokemon,
+  selectedPokemon,
+  addPokemon,
+  setSelectedPokemon,
+  onHandleAddPokemon,
+  onHandleDeletePokemon
+}) {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-  const { selectedPokemon, setSelectedPokemon } = useContext(PokemonContext)
 
-  // key값을 가지고 value를 매치
-  // http://localhost:5173/dex/pokemonDetail?id=1
   const pokemonId = Number(searchParams.get('id'))
   const detailPokemon = pokemon.find((prev) => prev.id === pokemonId)
 
-  const onHandleAddDetailPokemon = () => {
-    const isSelectedData = selectedPokemon.find((prev) => prev.id === pokemonId)
-
-    if (isSelectedData) {
+  const handleAdd = () => {
+    if (isSelected(pokemonId)) {
       alert(`${detailPokemon.korean_name}는 이미 선택된 포켓몬입니다.`)
-      return
-    }
-
-    if (selectedPokemon.length >= 6) {
+    } else if (selectedPokemon.length >= countPokemon) {
       alert('최대 6마리까지만 선택할 수 있습니다.')
-      return
+    } else {
+      addPokemon(detailPokemon)
+      alert(`${detailPokemon.korean_name} 이/가 추가되었습니다.`)
     }
-
-    const newSelectedPokemon = [...selectedPokemon, detailPokemon]
-    setSelectedPokemon(newSelectedPokemon)
-    alert(`${detailPokemon.korean_name} 이/가 추가되었습니다.`)
   }
 
   const goToBack = () => {
@@ -58,7 +54,7 @@ export default function PokemonDetail({ pokemon, convertId, countPokemon, onHand
               <p>{detailPokemon.description}</p>
               <div className="btn-box">
                 <DetailButton onClick={goToBack}>뒤로가기</DetailButton>
-                <DetailButton $yellow onClick={onHandleAddDetailPokemon}>
+                <DetailButton $yellow onClick={handleAdd}>
                   추가하기
                 </DetailButton>
               </div>
