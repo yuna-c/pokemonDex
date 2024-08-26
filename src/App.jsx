@@ -1,11 +1,12 @@
-import PokemonList from './pages/pokemonList';
+import Router from './shared/router/Router'
 
-const App = () => {
+// yarn add styled-components
+// yarn add react-router-dom
+
+export default function App() {
   return (
     <>
-      <PokemonList />
+      <Router />
     </>
-  );
-};
-
-export default App;
+  )
+}
