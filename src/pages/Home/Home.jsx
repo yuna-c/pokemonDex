@@ -1,6 +1,7 @@
+import { useNavigate } from 'react-router-dom'
+
 import Layout from './../../shared/layout/Layout'
 import { Article } from '../../styles/LayoutStyle'
-import { useNavigate } from 'react-router-dom'
 import { MainButton } from '../../styles/LayoutStyle'
 
 export default function Home() {

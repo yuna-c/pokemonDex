@@ -1,26 +1,22 @@
+import { useContext } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import Dashboard from '../../components/dashboard/Dashboard'
+
 import Layout from '../../shared/layout/Layout'
+import Dashboard from '../../components/dashboard/Dashboard'
+import { PokemonContext } from '../../context/PokemonContext'
+
 import { Article } from '../../styles/LayoutStyle'
 import { DetailButton, DetailBox, BoardTitle } from '../../styles/CommonStyle'
 
-export default function PokemonDetail({
-  pokemon,
-  convertId,
-  selectedPokemon,
-  setSelectedPokemon,
-  onHandleAddPokemon,
-  onHandleDeletePokemon,
-  countPokemon
-}) {
+export default function PokemonDetail({ pokemon, convertId, countPokemon, onHandleAddPokemon, onHandleDeletePokemon }) {
   const navigate = useNavigate()
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams] = useSearchParams()
+  const { selectedPokemon, setSelectedPokemon } = useContext(PokemonContext)
 
-  // key값을 가지고 value를 찾아서 하는 것
+  // key값을 가지고 value를 매치
   // http://localhost:5173/dex/pokemonDetail?id=1
-
   const pokemonId = Number(searchParams.get('id'))
-  const detailPokemon = pokemon.find((prev) => prev.id === Number(pokemonId))
+  const detailPokemon = pokemon.find((prev) => prev.id === pokemonId)
 
   const onHandleAddDetailPokemon = () => {
     const isSelectedData = selectedPokemon.find((prev) => prev.id === pokemonId)
@@ -39,12 +35,13 @@ export default function PokemonDetail({
     setSelectedPokemon(newSelectedPokemon)
     alert(`${detailPokemon.korean_name} 이/가 추가되었습니다.`)
   }
+
   const goToBack = () => {
     navigate(-1)
   }
 
   return (
-    <Layout title={'PokemonDetail'} showBackground={false}>
+    <Layout title="PokemonDetail" showBackground={false}>
       <Article id="DetailItem">
         <BoardTitle>포켓몬 정보</BoardTitle>
         <DetailBox>
@@ -57,7 +54,7 @@ export default function PokemonDetail({
                 <p className="type-box">{detailPokemon.types.join(', ')}</p>
                 {detailPokemon.korean_name}
               </h3>
-              <img src={detailPokemon.img_url} alt={detailPokemon.img_url} />
+              <img src={detailPokemon.img_url} alt={detailPokemon.korean_name} />
               <p>{detailPokemon.description}</p>
               <div className="btn-box">
                 <DetailButton onClick={goToBack}>뒤로가기</DetailButton>

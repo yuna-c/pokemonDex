@@ -1,21 +1,18 @@
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+
+import { PokemonContext } from '../../context/PokemonContext'
+
 import { CardLi } from './../../styles/CommonStyle'
+
 import ball from './../../assets/img/ball.png'
 import deleteBall from './../../assets/img/deleteBall.png'
 
-export default function PokemonCard({
-  data,
-  convertId,
-  isSelected,
-  countPokemon,
-  selectedPokemon,
-  setSelectedPokemon
-}) {
+export default function PokemonCard({ data, convertId, isSelected, countPokemon }) {
   const navigate = useNavigate()
   const pokemonId = data.id
-  const goToId = () => {
-    navigate(`/dex/pokemonDetail?id=${data.id}`)
-  }
+  const goToId = () => navigate(`/dex/pokemonDetail?id=${data.id}`)
+  const { selectedPokemon, setSelectedPokemon } = useContext(PokemonContext)
 
   const onHandleAddPokemon = () => {
     const isSelectedData = selectedPokemon.find((prev) => prev.id === pokemonId)

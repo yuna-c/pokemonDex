@@ -1,9 +1,14 @@
-import { CardUl, CardLi } from '../../styles/CommonStyle'
+import { useContext } from 'react'
+import { PokemonContext } from '../../context/PokemonContext'
 
+import { CardUl, CardLi } from '../../styles/CommonStyle'
 import PokemonCard from '../pokemonCard/PokemonCard'
+
 import bg from './../../assets/img/bg.jpeg'
 
-export default function Dashboard({ convertId, countPokemon, selectedPokemon, setSelectedPokemon }) {
+export default function Dashboard({ convertId, countPokemon }) {
+  const { selectedPokemon, setSelectedPokemon } = useContext(PokemonContext)
+
   return (
     <>
       <CardUl>

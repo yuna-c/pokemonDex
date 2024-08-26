@@ -1,7 +1,12 @@
+import { useContext } from 'react'
+
+import { PokemonContext } from '../../context/PokemonContext'
+
 import { CardUl } from '../../styles/CommonStyle'
 import PokemonCard from '../pokemonCard/PokemonCard'
 
-export default function PokemonList({ pokemon, convertId, countPokemon, selectedPokemon, setSelectedPokemon }) {
+export default function PokemonList({ pokemon, convertId, countPokemon }) {
+  const { selectedPokemon, setSelectedPokemon } = useContext(PokemonContext)
   return (
     <>
       <CardUl className="PokemonList">
