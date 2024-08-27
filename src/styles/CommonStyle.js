@@ -68,7 +68,7 @@ export const DetailBox = styled.article`
 export const CardUl = styled.ul`
   display: grid;
   margin: 30px auto;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   gap: 40px;
   width: 100%;
   justify-items: center;

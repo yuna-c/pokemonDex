@@ -6,11 +6,14 @@ export const Wrap = styled.div`
 
   > * {
     width: 100%;
+    max-width: 1440px;
   }
 `
 
 export const Section = styled.section`
   width: 100%;
+  max-width: 1440px;
+  margin: auto;
   min-height: calc(100vh - 5rem);
   display: flex;
   justify-content: center;
@@ -41,7 +44,7 @@ export const Content = styled.div`
 
 export const Article = styled.article`
   width: 100%;
-  padding: 30px 10%;
+  padding: 30px 50px;
 `
 export const Footer = styled.footer`
   padding: 30px 10px;
@@ -50,6 +53,7 @@ export const Footer = styled.footer`
 `
 
 export const BackgroundImage = styled.img`
+  max-width: 650px;
   z-index: -1;
   position: fixed;
   top: 50%;
