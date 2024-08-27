@@ -1,23 +1,17 @@
 import { useSelector } from 'react-redux'
-import { CardUl, CardLi } from '../../styles/CommonStyle'
-import PokemonCard from '../pokemonCard/PokemonCard'
-import bg from './../../assets/img/bg.jpeg'
 
-export default function Dashboard({ convertId, countPokemon, addPokemon, removePokemon }) {
+import bg from './../../assets/img/bg.jpeg'
+import PokemonCard from '../pokemonCard/PokemonCard'
+import { CardUl, CardLi } from '../../styles/CommonStyle'
+
+export default function Dashboard({ convertId, countPokemon }) {
   const selectedPokemon = useSelector((state) => state.pokemon.selectedPokemon)
 
   return (
     <>
       <CardUl>
         {selectedPokemon.map((pokemon) => (
-          <PokemonCard
-            key={pokemon.id}
-            data={pokemon}
-            isSelected={true}
-            convertId={convertId}
-            addPokemon={addPokemon}
-            removePokemon={removePokemon}
-          />
+          <PokemonCard key={pokemon.id} data={pokemon} isSelected={true} convertId={convertId} />
         ))}
 
         {Array.from({ length: countPokemon - selectedPokemon.length }).map((_, index) => (
