@@ -1,14 +1,14 @@
 import { useContext } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import { PokemonContext } from '../../context/PokemonContext'
 
 import Layout from '../../shared/layout/Layout'
 import Dashboard from '../../components/dashboard/Dashboard'
-import { PokemonContext } from '../../context/PokemonContext'
 
 import { Article } from '../../styles/LayoutStyle'
 import { DetailButton, DetailBox, BoardTitle } from '../../styles/CommonStyle'
 
-export default function PokemonDetail({ pokemon, convertId, countPokemon, onHandleAddPokemon, onHandleDeletePokemon }) {
+export default function PokemonDetail({ pokemon, convertId, countPokemon }) {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const { selectedPokemon, setSelectedPokemon } = useContext(PokemonContext)
@@ -75,8 +75,6 @@ export default function PokemonDetail({ pokemon, convertId, countPokemon, onHand
           countPokemon={countPokemon}
           selectedPokemon={selectedPokemon}
           setSelectedPokemon={setSelectedPokemon}
-          onHandleAddPokemon={onHandleAddPokemon}
-          onHandleDeletePokemon={onHandleDeletePokemon}
         />
       </Article>
     </Layout>

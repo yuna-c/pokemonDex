@@ -1,11 +1,9 @@
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-
 import { PokemonContext } from '../../context/PokemonContext'
 
-import { CardLi } from './../../styles/CommonStyle'
-
 import ball from './../../assets/img/ball.png'
+import { CardLi } from './../../styles/CommonStyle'
 import deleteBall from './../../assets/img/deleteBall.png'
 
 export default function PokemonCard({ data, convertId, isSelected, countPokemon }) {
@@ -14,7 +12,8 @@ export default function PokemonCard({ data, convertId, isSelected, countPokemon 
   const goToId = () => navigate(`/dex/pokemonDetail?id=${data.id}`)
   const { selectedPokemon, setSelectedPokemon } = useContext(PokemonContext)
 
-  const onHandleAddPokemon = () => {
+  const onHandleAddPokemon = (e) => {
+    e.stopPropagation()
     const isSelectedData = selectedPokemon.find((prev) => prev.id === pokemonId)
 
     if (isSelectedData) {
@@ -32,9 +31,9 @@ export default function PokemonCard({ data, convertId, isSelected, countPokemon 
     alert(`${data.korean_name} 이/가 추가되었습니다.`)
   }
 
-  const onHandleDeletePokemon = () => {
+  const onHandleDeletePokemon = (e) => {
+    e.stopPropagation()
     const updatedArray = selectedPokemon.filter((prev) => prev.id !== pokemonId)
-
     setSelectedPokemon(updatedArray)
   }
 
@@ -47,24 +46,12 @@ export default function PokemonCard({ data, convertId, isSelected, countPokemon 
         {data.korean_name}
 
         {isSelected ? (
-          <button
-            className="delete-img"
-            onClick={(e) => {
-              e.stopPropagation()
-              onHandleDeletePokemon()
-            }}
-          >
+          <button className="delete-img" onClick={onHandleDeletePokemon}>
             <img src={deleteBall} alt="Delete" title="삭제하기" />
             삭제
           </button>
         ) : (
-          <button
-            className="add-img"
-            onClick={(e) => {
-              e.stopPropagation()
-              onHandleAddPokemon()
-            }}
-          >
+          <button className="add-img" onClick={onHandleAddPokemon}>
             <img src={ball} alt="Add" title="추가하기" />
             추가
           </button>

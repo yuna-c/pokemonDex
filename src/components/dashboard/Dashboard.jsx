@@ -1,10 +1,9 @@
 import { useContext } from 'react'
 import { PokemonContext } from '../../context/PokemonContext'
 
-import { CardUl, CardLi } from '../../styles/CommonStyle'
-import PokemonCard from '../pokemonCard/PokemonCard'
-
 import bg from './../../assets/img/bg.jpeg'
+import PokemonCard from '../pokemonCard/PokemonCard'
+import { CardUl, CardLi } from '../../styles/CommonStyle'
 
 export default function Dashboard({ convertId, countPokemon }) {
   const { selectedPokemon, setSelectedPokemon } = useContext(PokemonContext)
@@ -14,8 +13,8 @@ export default function Dashboard({ convertId, countPokemon }) {
       <CardUl>
         {selectedPokemon.map((pokemon) => (
           <PokemonCard
-            key={pokemon.id}
             data={pokemon}
+            key={pokemon.id}
             isSelected={true}
             convertId={convertId}
             countPokemon={countPokemon}

@@ -1,15 +1,14 @@
 import { useContext } from 'react'
-
-import Dashboard from '../../components/dashboard/Dashboard'
-import PokemonList from '../../components/pokemonList/PokemonList'
 import { PokemonContext } from '../../context/PokemonContext'
 
 import Layout from '../../shared/layout/Layout'
+import Dashboard from '../../components/dashboard/Dashboard'
+import PokemonList from '../../components/pokemonList/PokemonList'
 
 import { Article } from '../../styles/LayoutStyle'
 import { BoardTitle } from '../../styles/CommonStyle'
 
-export default function Dex({ pokemon, convertId, countPokemon, isSelected }) {
+export default function Dex({ pokemon, convertId, countPokemon }) {
   const { selectedPokemon, setSelectedPokemon } = useContext(PokemonContext)
 
   return (
@@ -30,7 +29,6 @@ export default function Dex({ pokemon, convertId, countPokemon, isSelected }) {
         <PokemonList
           pokemon={pokemon}
           convertId={convertId}
-          isSelected={isSelected}
           countPokemon={countPokemon}
           selectedPokemon={selectedPokemon}
           setSelectedPokemon={setSelectedPokemon}
