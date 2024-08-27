@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { addPokemon, removePokemon } from '../../redux/modules/pokemonReducer'
+import { addPokemon, removePokemon } from '../../redux/slices/pokemonSlice'
 
 import { CardLi } from '../../styles/CommonStyle'
 import ball from './../../assets/img/ball.png'
@@ -15,6 +15,7 @@ export default function PokemonCard({ data, convertId, isSelected }) {
   const selectedPokemon = useSelector((state) => state.pokemon.selectedPokemon)
 
   const onHandleAddPokemon = (e) => {
+    console.log('addPokemon 액션 호출')
     e.stopPropagation()
     const isSelectedData = selectedPokemon.some((pokemon) => pokemon.id === pokemonId)
 

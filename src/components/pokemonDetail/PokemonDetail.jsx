@@ -1,6 +1,6 @@
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { addPokemon } from '../../redux/modules/pokemonReducer'
+import { addPokemon } from '../../redux/slices/pokemonSlice'
 
 import { Article } from '../../styles/LayoutStyle'
 import { DetailButton, DetailBox, BoardTitle } from '../../styles/CommonStyle'
