@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import Dex from '../../pages/Dex/Dex'
-import Home from '../../pages/Home/Home'
+import Dex from '../../pages/dex/Dex'
+import Home from '../../pages/home/Home'
 import MOCK_DATA from '../../data/mock'
 import WrapOutlet from '../outlet/WrapOutlet'
 import PokemonDetail from '../../components/pokemonDetail/PokemonDetail'
