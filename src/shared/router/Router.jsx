@@ -1,10 +1,11 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Dex from '../../pages/dex/Dex'
-import Home from '../../pages/home/Home'
-import PokemonDetail from '../../components/pokemonDetail/PokemonDetail'
-import WrapOutlet from '../outlet/WrapOutlet'
-import MOCK_DATA from '../../data/mock'
 import { useState } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+import Dex from '../../pages/dex/Dex'
+import MOCK_DATA from '../../data/mock'
+import Home from '../../pages/home/Home'
+import WrapOutlet from '../outlet/WrapOutlet'
+import PokemonDetail from '../../components/pokemonDetail/PokemonDetail'
 
 export default function Router() {
   const pokemon = MOCK_DATA

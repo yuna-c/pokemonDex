@@ -1,7 +1,6 @@
-import { CardUl, CardLi } from '../../styles/CommonStyle'
-
-import PokemonCard from '../pokemonCard/PokemonCard'
 import bg from './../../assets/img/bg.jpeg'
+import PokemonCard from '../pokemonCard/PokemonCard'
+import { CardUl, CardLi } from '../../styles/CommonStyle'
 
 export default function Dashboard({ convertId, countPokemon, selectedPokemon, setSelectedPokemon }) {
   return (

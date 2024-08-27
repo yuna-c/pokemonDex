@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
-import { CardLi } from './../../styles/CommonStyle'
+
 import ball from './../../assets/img/ball.png'
+import { CardLi } from './../../styles/CommonStyle'
 import deleteBall from './../../assets/img/deleteBall.png'
 
 export default function PokemonCard({

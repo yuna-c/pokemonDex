@@ -1,6 +1,8 @@
 import { useNavigate, useSearchParams } from 'react-router-dom'
+
 import Dashboard from '../../components/dashboard/Dashboard'
 import Layout from '../../shared/layout/Layout'
+
 import { Article } from '../../styles/LayoutStyle'
 import { DetailButton, DetailBox, BoardTitle } from '../../styles/CommonStyle'
 
@@ -10,7 +12,6 @@ export default function PokemonDetail({ pokemon, convertId, countPokemon, select
 
   // key값을 가지고 value를 찾아서 하는 것
   // http://localhost:5173/dex/pokemonDetail?id=1
-
   const pokemonId = Number(searchParams.get('id'))
   const detailPokemon = pokemon.find((prev) => prev.id === Number(pokemonId))
 
