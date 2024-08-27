@@ -4,16 +4,16 @@
 
 ## 프로젝트 주소
 
-[포켓몬 도감 바로가기](https://react-sigma-beryl.vercel.app//)
+[포켓몬 도감 바로가기](https://pokemon-dex-virid.vercel.app/)
 
 ## 프로젝트 소개
 
 포켓몬 리스트와 나만의 포켓몬을 지정할 수 있는 어플리케이션
 
-랜딩 페이지
-![alt text](image.png)
+**랜딩 페이지**
+![image11](https://github.com/user-attachments/assets/0ec182c0-27dc-4cdb-9a30-fa81d941e194)
 
-메인 페이지
+**메인 페이지**
 ![캡처](https://github.com/user-attachments/assets/09a30c6f-2aa1-4530-b4d1-3f74774df229)
 ![localhost_5173_dex](https://github.com/user-attachments/assets/e0b1d69b-33f6-4287-8fb4-e75f7c250af6)
 
@@ -150,3 +150,8 @@ pokemonDex                                           //
     반복 코드를 쉽게 삭제하고 수정할 수 있었으며, 필요한 부분만 독립적으로 수정하기 좋았다.
 
 ## 추가예정
+
+- 트러블슈팅 부분
+- 리팩토링 과정
+- 영상 올리기
+- UI 라이브러리 활용
