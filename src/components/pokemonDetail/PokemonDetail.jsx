@@ -4,15 +4,7 @@ import Layout from '../../shared/layout/Layout'
 import { Article } from '../../styles/LayoutStyle'
 import { DetailButton, DetailBox, BoardTitle } from '../../styles/CommonStyle'
 
-export default function PokemonDetail({
-  pokemon,
-  convertId,
-  selectedPokemon,
-  setSelectedPokemon,
-  onHandleAddPokemon,
-  onHandleDeletePokemon,
-  countPokemon
-}) {
+export default function PokemonDetail({ pokemon, convertId, countPokemon, selectedPokemon, setSelectedPokemon }) {
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
 
@@ -30,7 +22,7 @@ export default function PokemonDetail({
       return
     }
 
-    if (selectedPokemon.length >= 6) {
+    if (selectedPokemon.length >= countPokemon) {
       alert('최대 6마리까지만 선택할 수 있습니다.')
       return
     }
@@ -78,8 +70,6 @@ export default function PokemonDetail({
           countPokemon={countPokemon}
           selectedPokemon={selectedPokemon}
           setSelectedPokemon={setSelectedPokemon}
-          onHandleAddPokemon={onHandleAddPokemon}
-          onHandleDeletePokemon={onHandleDeletePokemon}
         />
       </Article>
     </Layout>

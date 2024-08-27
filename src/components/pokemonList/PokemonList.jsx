@@ -10,8 +10,8 @@ export default function PokemonList({ pokemon, convertId, countPokemon, selected
             <PokemonCard
               key={data.id}
               id={data.id}
-              isSelected={false}
               data={data}
+              isSelected={false}
               convertId={convertId}
               countPokemon={countPokemon}
               selectedPokemon={selectedPokemon}

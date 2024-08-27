@@ -4,7 +4,7 @@ import Layout from '../../shared/layout/Layout'
 import { Article } from '../../styles/LayoutStyle'
 import { BoardTitle } from '../../styles/CommonStyle'
 
-export default function Dex({ pokemon, convertId, countPokemon, isSelected, selectedPokemon, setSelectedPokemon }) {
+export default function Dex({ pokemon, convertId, countPokemon, selectedPokemon, setSelectedPokemon }) {
   return (
     <Layout title={'Dex'} showBackground={false}>
       <Article id="Dashboard">
@@ -22,7 +22,6 @@ export default function Dex({ pokemon, convertId, countPokemon, isSelected, sele
         <PokemonList
           pokemon={pokemon}
           convertId={convertId}
-          isSelected={isSelected}
           countPokemon={countPokemon}
           selectedPokemon={selectedPokemon}
           setSelectedPokemon={setSelectedPokemon}

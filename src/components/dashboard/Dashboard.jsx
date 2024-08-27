@@ -9,8 +9,8 @@ export default function Dashboard({ convertId, countPokemon, selectedPokemon, se
       <CardUl>
         {selectedPokemon.map((pokemon) => (
           <PokemonCard
-            key={pokemon.id}
             data={pokemon}
+            key={pokemon.id}
             isSelected={true}
             convertId={convertId}
             countPokemon={countPokemon}
