@@ -7,13 +7,12 @@ export const Wrap = styled.div`
   > * {
     width: 100%;
     max-width: 1440px;
+    margin: auto;
   }
 `
 
 export const Section = styled.section`
   width: 100%;
-  max-width: 1440px;
-  margin: auto;
   min-height: calc(100vh - 5rem);
   display: flex;
   justify-content: center;
