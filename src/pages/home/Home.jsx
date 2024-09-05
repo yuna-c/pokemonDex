@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 
 import Layout from './../../shared/layout/Layout'
-import { Article } from '../../styles/LayoutStyle'
-import { MainButton } from '../../styles/LayoutStyle'
+import { Article, MainButton } from '../../styles/Layout'
 
 export default function Home() {
   const navigate = useNavigate()

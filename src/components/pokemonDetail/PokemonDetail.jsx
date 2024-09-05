@@ -2,8 +2,8 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { addPokemon } from '../../redux/slices/pokemonSlice'
 
-import { Article } from '../../styles/LayoutStyle'
-import { DetailButton, DetailBox, BoardTitle } from '../../styles/CommonStyle'
+import { Article } from '../../styles/Layout'
+import { DetailButton, DetailBox, BoardTitle } from '../../styles/Common'
 
 import Layout from '../../shared/layout/Layout'
 import Dashboard from '../../components/dashboard/Dashboard'
@@ -22,7 +22,7 @@ export default function PokemonDetail({ pokemon, convertId, isSelected }) {
 
   const onHandleDeletePokemon = () => {
     if (isSelected(pokemonId)) {
-      alert(`${detailPokemon.korean_name}는 이미 선택된 포켓몬입니다.`)
+      alert(`${detailPokemon.koreanName}는 이미 선택된 포켓몬입니다.`)
       return
     }
 
@@ -32,7 +32,7 @@ export default function PokemonDetail({ pokemon, convertId, isSelected }) {
     }
 
     dispatch(addPokemon(detailPokemon))
-    alert(`${detailPokemon.korean_name} 이/가 추가되었습니다.`)
+    alert(`${detailPokemon.koreanName} 이/가 추가되었습니다.`)
   }
 
   return (
@@ -47,9 +47,9 @@ export default function PokemonDetail({ pokemon, convertId, isSelected }) {
               <p className="txt"># {convertId(detailPokemon.id)}</p>
               <h3>
                 <p className="type-box">{detailPokemon.types.join(', ')}</p>
-                {detailPokemon.korean_name}
+                {detailPokemon.koreanName}
               </h3>
-              <img src={detailPokemon.img_url} alt={detailPokemon.korean_name} />
+              <img src={detailPokemon.img_url} alt={detailPokemon.koreanName} />
               <p>{detailPokemon.description}</p>
 
               <div className="btn-box">

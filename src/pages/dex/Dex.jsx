@@ -1,5 +1,5 @@
-import { Article } from '../../styles/LayoutStyle'
-import { BoardTitle } from '../../styles/CommonStyle'
+import { Article } from '../../styles/Layout'
+import { BoardTitle } from '../../styles/Common'
 
 import Layout from '../../shared/layout/Layout'
 import Dashboard from '../../components/dashboard/Dashboard'

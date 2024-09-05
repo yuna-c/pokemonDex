@@ -1,4 +1,4 @@
-import { Section, BackgroundImage, Footer } from '../../styles/LayoutStyle'
+import { Section, BackgroundImage, Footer } from '../../styles/Layout'
 import bg from './../../assets/img/bg.jpeg'
 
 export default function Layout({ title, children, showBackground = true }) {
