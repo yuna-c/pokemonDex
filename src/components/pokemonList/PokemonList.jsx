@@ -5,7 +5,7 @@ export default function PokemonList({ pokemon, convertId }) {
   return (
     <CardContent className="PokemonList">
       {pokemon.map((data) => {
-        return <PokemonCard key={data.id} data={data} convertId={convertId} isSelected={false} />
+        return <PokemonCard key={data.id} data={data} convertId={convertId} />
       })}
     </CardContent>
   )
